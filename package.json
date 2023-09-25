@@ -1,8 +1,8 @@
 {
-  "name": "hellabyss",
-  "productName": "hellabyss",
+  "name": "tselectrontemplate",
+  "productName": "tselectrontemplate",
   "version": "1.0.0",
-  "description": "Official Hellabyss game",
+  "description": "tselectrontemplate",
   "type": "commonjs",
   "main": "server/js/index.js",
   "scripts": {
