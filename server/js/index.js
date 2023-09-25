@@ -1,5 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const { hello } = require('./importHello.js');
+hello();
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
     app.quit();

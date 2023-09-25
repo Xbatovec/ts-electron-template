@@ -2,9 +2,7 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "module": "CommonJS",
-        "target": "ES6",
-        "sourceMap": true,
-        "outDir": "server/js"
+        "outDir": "server/js",
     },
     "include": ["server/ts/**/*"],
     "exclude": ["client/ts/**/*"]

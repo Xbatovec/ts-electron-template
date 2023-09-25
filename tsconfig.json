@@ -3,7 +3,8 @@
         "module": "CommonJS",
         "target": "ES6",
         "sourceMap": true,
-        "outDir": "src/js/server"
+        "outDir": "src/js/server",
+        "moduleDetection": "force"
     },
     "exclude": ["nodemodules"]
 }
