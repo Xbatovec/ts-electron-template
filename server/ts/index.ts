@@ -2,10 +2,10 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 
 // module template (exported to CommonJS - require)
-import Hello from './hello.js';
+import Greeting from './hello.js';
 
 // execute one of functions from imported class
-Hello.formal();
+console.log('1:', Greeting.formal());
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -31,6 +31,8 @@ const createWindow = () => {
 
 app.on('ready', () => {
     createWindow();
+
+    ipcMain.handle('greeting', () => Greeting.informal());
 });
 
 app.on('window-all-closed', () => {

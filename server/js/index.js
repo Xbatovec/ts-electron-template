@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const electron_1 = require("electron");
 const path_1 = __importDefault(require("path"));
-// CommonJS module template
-const importHello_js_1 = __importDefault(require("./importHello.js"));
-importHello_js_1.default.say();
+// module template (exported to CommonJS - require)
+const hello_js_1 = __importDefault(require("./hello.js"));
+// execute one of functions from imported class
+console.log('1:', hello_js_1.default.formal());
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
     electron_1.app.quit();
@@ -28,6 +29,7 @@ const createWindow = () => {
 };
 electron_1.app.on('ready', () => {
     createWindow();
+    electron_1.ipcMain.handle('greeting', () => hello_js_1.default.informal());
 });
 electron_1.app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
