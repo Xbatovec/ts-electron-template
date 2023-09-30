@@ -1,9 +1,11 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
+import { app, BrowserWindow, ipcMain } from 'electron';
+import path from 'path';
 
-// CommonJS module template
-const { hello } = require('./importHello.js');
-hello();
+// module template (exported to CommonJS - require)
+import Hello from './hello.js';
+
+// execute one of functions from imported class
+Hello.formal();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {

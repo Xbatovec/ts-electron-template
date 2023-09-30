@@ -1,37 +1,41 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
-const { hello } = require('./importHello.js');
-hello();
+const electron_1 = require("electron");
+const path_1 = __importDefault(require("path"));
+// CommonJS module template
+const importHello_js_1 = __importDefault(require("./importHello.js"));
+importHello_js_1.default.say();
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
-    app.quit();
+    electron_1.app.quit();
 }
 const createWindow = () => {
     // Create the browser window.
-    const mainWindow = new BrowserWindow({
+    const mainWindow = new electron_1.BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
-            preload: path.join(__dirname, './../js/preload/preload.js'),
+            preload: path_1.default.join(__dirname, './../js/preload/preload.js'),
         },
     });
     // and load the index.html of the app.
-    mainWindow.loadFile(path.join(__dirname + './../../client/html/index.html'));
+    mainWindow.loadFile(path_1.default.join(__dirname + './../../client/html/index.html'));
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 };
-app.on('ready', () => {
+electron_1.app.on('ready', () => {
     createWindow();
 });
-app.on('window-all-closed', () => {
+electron_1.app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit();
+        electron_1.app.quit();
     }
 });
-app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
+electron_1.app.on('activate', () => {
+    if (electron_1.BrowserWindow.getAllWindows().length === 0) {
         createWindow();
     }
 });

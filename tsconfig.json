@@ -4,7 +4,8 @@
         "target": "ES6",
         "sourceMap": true,
         "outDir": "src/js/server",
-        "moduleDetection": "force"
+        "moduleDetection": "force",
+        "esModuleInterop": true
     },
     "exclude": ["nodemodules"]
 }
