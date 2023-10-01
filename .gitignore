@@ -1,3 +1,7 @@
+# Compiled ts files
+/server/js/**
+/client/js/**
+
 # Logs
 logs
 *.log
